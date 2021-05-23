@@ -18,7 +18,31 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from OUL!');
+
+
+		const panel = vscode.window.createWebviewPanel(
+			'oul',
+			'oul',
+			vscode.ViewColumn.One,
+			{}
+		)
+
+		panel.webview.html = getWebviewContent()
 	});
+
+	function getWebviewContent() {
+		return `<!DOCTYPE html>
+		<html lang="en">
+		<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Cat Coding</title>
+		</head>
+		<body>
+				<h2>XDJ</h2>
+		</body>
+		</html>`
+	}
 
 	context.subscriptions.push(disposable);
 }
